@@ -5,16 +5,19 @@ import {loadSearchAnalyticsActions, loadSearchActions} from '@coveo/headless';
 import {headlessEngine} from './engine';
 import {ResultList} from './components/result-list';
 import {Facet} from './components/facet';
+import {DateFacet} from './components/date-facet';
 import {Pager} from './components/pager';
 import {Sort} from './components/sort';
 import {
   facet,
+  dateFacet,
   pager,
   resultList,
   searchBox,
   sort,
 } from './controllers/controllers';
 import {criteria} from './controllers/sort-criteria';
+import {resultTemplatesManager} from './controllers/result-templates-manager';
 
 function App() {
   useEffect(() => {
@@ -35,10 +38,14 @@ function App() {
         <div className="main-section">
           <div className="facet-section column">
             <Facet controller={facet} title="Source" />
+            <DateFacet controller={dateFacet} title="Date" />
           </div>
           <div className="results-section column">
             <Sort controller={sort} criteria={criteria} />
-            <ResultList controller={resultList} />
+            <ResultList
+              controller={resultList}
+              resultTemplatesManager={resultTemplatesManager}
+            />
             <Pager controller={pager} />
           </div>
         </div>
