@@ -8,6 +8,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Clone or download the project and run `npm install` in the project directory.
 
+UPDATE:
+Run `npm install eslint-config-react-app`
+
+## `npm run build`
+
 ## `npm start`
 
 Runs the app in the development mode.\
